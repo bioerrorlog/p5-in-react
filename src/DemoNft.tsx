@@ -1,7 +1,12 @@
 import React from 'react';
 import p5 from 'p5';
+import md5 from 'md5';
 
 const sketch = (p: p5) => {
+  const nftSeed = 1
+  const hashedNftSeed = md5(String(nftSeed))
+  console.log(hashedNftSeed)
+
   const noiseScale = 0.0050; //0.0001~0.1000
  
   // Small effect factor
@@ -51,7 +56,6 @@ const sketch = (p: p5) => {
 
 // ref. https://discourse.processing.org/t/instance-mode-creating-two-canvas/14121
 new p5(sketch);
-
 
 const DemoNft: React.FC = () => {
   return (

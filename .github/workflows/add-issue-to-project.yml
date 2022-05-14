@@ -1,0 +1,19 @@
+name: Auto Assign to Project(s)
+
+on:
+  issues:
+    types:
+      - opened
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Add opend issue to the test project
+    steps:
+    - name: Assign NEW issues to test project
+      uses: srggrs/assign-one-project-github-action@1.2.1
+      with:
+        project: 'https://github.com/users/bioerrorlog/projects/1'
